@@ -1,6 +1,6 @@
 {
     "name": "react-bootstrap-pagination",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "ReactJS paginator class for kurounin:pagination meteor package",
     "repository": {
         "type": "git",

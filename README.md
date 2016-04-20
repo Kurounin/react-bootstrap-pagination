@@ -9,18 +9,18 @@ This package provides a bootstrap 3 paginator ReactJS class to be used with the 
 [![npm download][download-image]][download-url]
 
 [npm-image]: http://img.shields.io/npm/v/react-bootstrap-pagination.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/react-bootstrap-pagination
+[npm-url]: http://www.npmjs.com/package/react-bootstrap-pagination
 [node-image]: https://img.shields.io/badge/node.js-%3E=_0.10-green.svg?style=flat-square
 [node-url]: http://nodejs.org/download/
 [license-image]: https://img.shields.io/npm/l/react-bootstrap-pagination.svg?style=flat-square
-[license-url]: https://npmjs.org/package/react-bootstrap-pagination
+[license-url]: https://www.npmjs.com/package/react-bootstrap-pagination
 [download-image]: https://img.shields.io/npm/dt/react-bootstrap-pagination.svg?style=flat-square
-[download-url]: https://npmjs.org/package/react-bootstrap-pagination
+[download-url]: https://www.npmjs.com/package/react-bootstrap-pagination
 
 
 ## install
 
-[![react-bootstrap-pagination](https://nodei.co/npm/react-bootstrap-pagination.png)](https://npmjs.org/package/react-bootstrap-pagination)
+[![react-bootstrap-pagination](https://nodei.co/npm/react-bootstrap-pagination.png)](https://www.npmjs.com/package/react-bootstrap-pagination)
 
 # Usage
 
