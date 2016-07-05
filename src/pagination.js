@@ -114,7 +114,7 @@ export default React.createClass({
     },
 
     renderPreviousPages: function () {
-        if (this.state.displayedPages.length && this.state.displayedPages[0] > 1) {
+        if (this.state.displayedPages.length && this.state.displayedPages[0] > 2) {
             return (
                 <li>
                     <a href="#" className="show-prev" title="Show previous pages" onClick={this.handleClickShowPrevious}> ... </a>
@@ -126,7 +126,7 @@ export default React.createClass({
     },
 
     renderNextPages: function () {
-        if (this.state.displayedPages.length && this.state.displayedPages[this.state.displayedPages.length - 1] < this.props.pagination.totalPages()) {
+        if (this.state.displayedPages.length && this.state.displayedPages[this.state.displayedPages.length - 1] < this.props.pagination.totalPages() - 1) {
             return (
                 <li>
                     <a href="#" className="show-prev" title="Show next pages" onClick={this.handleClickShowNext}> ... </a>
