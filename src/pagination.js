@@ -7,6 +7,11 @@ export default class GridPaging extends React.Component {
     this.state = {
       displayedPages: [],
     };
+    this.setDisplayedPages = this.setDisplayedPages.bind(this);
+    this.handleClickPage = this.handleClickPage.bind(this);
+    this.handleClickShowPrevious = this.handleClickShowPrevious.bind(this);
+    this.handleClickShowNext = this.handleClickShowNext.bind(this);
+    this.renderPage = this.renderPage.bind(this);
   }
   componentWillMount() {
     this.setDisplayedPages(this.props);
@@ -22,10 +27,7 @@ export default class GridPaging extends React.Component {
     return result;
   }
   setDisplayedPages(props) {
-    if (!props.pagination.ready()) {
-      return;
-    }
-
+    if (!props.pagination && props.pagination.ready()) return null;
     const pageCount = props.pagination.totalPages();
     const current = props.pagination.currentPage();
     let min = 0;
@@ -47,13 +49,16 @@ export default class GridPaging extends React.Component {
     if (displayedPages !== this.state.displayedPages) {
       this.setState({ displayedPages });
     }
+    return false;
   }
   handleClickPage(page, event) {
-    if (page > 0 && page <= this.props.pagination.totalPages()) {
-      this.props.pagination.currentPage(page);
+    const pagination = this.props.pagination;
+    if (!(pagination && pagination.totalPages)) return null;
+    if (page > 0 && page <= pagination.totalPages()) {
+      pagination.currentPage(page);
     }
-
     event.preventDefault();
+    return false;
   }
   handleClickShowPrevious(event) {
     const min = Math.max(1, this.state.displayedPages[0] - this.props.limit);
@@ -64,7 +69,9 @@ export default class GridPaging extends React.Component {
     event.preventDefault();
   }
   handleClickShowNext(event) {
-    const pageCount = this.props.pagination.totalPages();
+    const pagination = this.props.pagination;
+    if (!(pagination && pagination.totalPages)) return null;
+    const pageCount = pagination.totalPages();
     const min = Math.min(
       pageCount - this.props.limit,
       this.state.displayedPages[this.state.displayedPages.length - 1]
@@ -74,11 +81,13 @@ export default class GridPaging extends React.Component {
     if (displayedPages !== this.state.displayedPages) {
       this.setState({ displayedPages });
     }
-
     event.preventDefault();
+    return false;
   }
   renderPage(page) {
-    const liClass = (this.props.pagination.currentPage() === page
+    const pagination = this.props.pagination;
+    if (!(pagination && pagination.currentPage)) return null;
+    const liClass = (pagination.currentPage() === page
       ? 'active'
       : ''
     );
@@ -113,10 +122,12 @@ export default class GridPaging extends React.Component {
     return null;
   }
   renderNextPages() {
+    const pagination = this.props.pagination;
+    if (!(pagination && pagination.totalPages)) return null;
     if (
       this.state.displayedPages.length
       && this.state.displayedPages[this.state.displayedPages.length - 1]
-      < this.props.pagination.totalPages() - 1
+      < pagination.totalPages() - 1
     ) {
       return (
         <li>
@@ -131,17 +142,19 @@ export default class GridPaging extends React.Component {
     return null;
   }
   renderLastPage() {
+    const pagination = this.props.pagination;
+    if (!(pagination && pagination.totalPages)) return null;
     if (
       this.state.displayedPages.length
       && this.state.displayedPages[this.state.displayedPages.length - 1]
-      < this.props.pagination.totalPages()
+      < pagination.totalPages()
     ) {
-      return this.renderPage(this.props.pagination.totalPages());
+      return this.renderPage(pagination.totalPages());
     }
     return null;
   }
   render() {
-    const { pagination } = this.props;
+    const pagination = this.props.pagination;
     const containerClass = classnames(
       'pagination-container',
       this.props.containerClass,
