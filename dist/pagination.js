@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['exports', 'react'], factory);
+    define(['exports', 'react', 'prop-types'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require('react'));
+    factory(exports, require('react'), require('prop-types'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.react);
+    factory(mod.exports, global.react, global.propTypes);
     global.pagination = mod.exports;
   }
-})(this, function (exports, _react) {
+})(this, function (exports, _react, _propTypes) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -18,6 +18,8 @@
   });
 
   var _react2 = _interopRequireDefault(_react);
+
+  var _propTypes2 = _interopRequireDefault(_propTypes);
 
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
@@ -346,12 +348,12 @@
 
 
   GridPaging.propTypes = {
-    error: _react2.default.PropTypes.any,
-    pagination: _react2.default.PropTypes.object,
-    pageCount: _react2.default.PropTypes.number,
-    limit: _react2.default.PropTypes.number,
-    page: _react2.default.PropTypes.number,
-    containerClass: _react2.default.PropTypes.string
+    error: _propTypes2.default.any,
+    pagination: _propTypes2.default.object,
+    pageCount: _propTypes2.default.number,
+    limit: _propTypes2.default.number,
+    page: _propTypes2.default.number,
+    containerClass: _propTypes2.default.string
   };
 
   GridPaging.defaultProps = {

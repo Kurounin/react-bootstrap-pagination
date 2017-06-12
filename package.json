@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-pagination",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "ReactJS paginator class for kurounin:pagination meteor package",
   "repository": {
     "type": "git",
@@ -38,11 +38,13 @@
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-react": "^6.7.1",
     "react": "^15.0.0",
-    "react-dom": "^15.0.0"
+    "react-dom": "^15.0.0",
+	"prop-types": "^15.5.0"
   },
   "peerDependencies": {
     "react": "~0.14.8 || ^15.0.0",
-    "react-dom": "~0.14.8 || ^15.0.0"
+    "react-dom": "~0.14.8 || ^15.0.0",
+	"prop-types": "^15.5.0"
   },
   "dependencies": {
     "babel-runtime": "^6.6.1"

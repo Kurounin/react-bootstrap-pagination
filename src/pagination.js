@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class GridPaging extends React.Component {
   constructor(props) {
@@ -236,12 +237,12 @@ export default class GridPaging extends React.Component {
 }
 
 GridPaging.propTypes = {
-  error: React.PropTypes.any,
-  pagination: React.PropTypes.object,
-  pageCount: React.PropTypes.number,
-  limit: React.PropTypes.number,
-  page: React.PropTypes.number,
-  containerClass: React.PropTypes.string,
+  error: PropTypes.any,
+  pagination: PropTypes.object,
+  pageCount: PropTypes.number,
+  limit: PropTypes.number,
+  page: PropTypes.number,
+  containerClass: PropTypes.string,
 };
 
 GridPaging.defaultProps = {
