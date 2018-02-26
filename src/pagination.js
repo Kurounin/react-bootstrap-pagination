@@ -212,7 +212,7 @@ export default class GridPaging extends React.Component {
           <li className={pagination.currentPage() === 1 ? 'disabled' : ''}>
             <a
               href="#"
-              className="previous-page"
+              className="page-link previous-page"
               title="Previous page"
               onClick={this.handleClickPage.bind(this, pagination.currentPage() - 1)}
 			  > &lt; </a>
@@ -225,7 +225,7 @@ export default class GridPaging extends React.Component {
           <li className={pagination.currentPage() === pagination.totalPages() ? 'disabled' : ''}>
             <a
               href="#"
-              className="next-page"
+              className="page-link next-page"
               title="Next page"
               onClick={this.handleClickPage.bind(this, pagination.currentPage() + 1)}
 			  > &gt; </a>
