@@ -196,7 +196,7 @@
 
         if (!pagination || !pagination.currentPage) return null;
 
-        var liClass = pagination.currentPage() === page ? 'active' : '';
+        var liClass = 'page-item' + (pagination.currentPage() === page ? ' active' : '');
 
         return _react2.default.createElement(
           'li',
@@ -228,12 +228,12 @@
         if (this.state.displayedPages.length && this.state.displayedPages[0] > 2) {
           return _react2.default.createElement(
             'li',
-            null,
+            { className: 'page-item' },
             _react2.default.createElement(
               'a',
               {
                 href: '#',
-                className: 'show-prev',
+                className: 'page-link show-prev',
                 title: 'Show previous pages',
                 onClick: this.handleClickShowPrevious
               },
@@ -254,12 +254,12 @@
         if (this.state.displayedPages.length && this.state.displayedPages[this.state.displayedPages.length - 1] < pagination.totalPages() - 1) {
           return _react2.default.createElement(
             'li',
-            null,
+            { className: 'page-item' },
             _react2.default.createElement(
               'a',
               {
                 href: '#',
-                className: 'show-prev',
+                className: 'page-link show-prev',
                 title: 'Show next pages',
                 onClick: this.handleClickShowNext
               },
@@ -305,12 +305,12 @@
             { className: 'pagination' },
             _react2.default.createElement(
               'li',
-              { className: pagination.currentPage() === 1 ? 'disabled' : '' },
+              { className: 'page-item ' + (pagination.currentPage() === 1 ? 'disabled' : '') },
               _react2.default.createElement(
                 'a',
                 {
                   href: '#',
-                  className: 'previous-page',
+                  className: 'page-link previous-page',
                   title: 'Previous page',
                   onClick: this.handleClickPage.bind(this, pagination.currentPage() - 1)
                 },
@@ -324,12 +324,12 @@
             this.renderLastPage(),
             _react2.default.createElement(
               'li',
-              { className: pagination.currentPage() === pagination.totalPages() ? 'disabled' : '' },
+              { className: 'page-item ' + (pagination.currentPage() === pagination.totalPages() ? 'disabled' : '') },
               _react2.default.createElement(
                 'a',
                 {
                   href: '#',
-                  className: 'next-page',
+                  className: 'page-link next-page',
                   title: 'Next page',
                   onClick: this.handleClickPage.bind(this, pagination.currentPage() + 1)
                 },

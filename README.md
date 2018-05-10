@@ -1,7 +1,7 @@
 react-bootstrap-pagination
 =================
 
-This package provides a bootstrap 3 paginator ReactJS class to be used with the meteor [kurounin:pagination](https://atmospherejs.com/kurounin/pagination) package.
+This package provides a bootstrap 3 and/or 4 paginator ReactJS class to be used with the meteor [kurounin:pagination](https://atmospherejs.com/kurounin/pagination) package.
 
 [![NPM version][npm-image]][npm-url]
 [![node version][node-image]][node-url]

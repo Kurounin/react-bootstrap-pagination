@@ -111,7 +111,7 @@ export default class GridPaging extends React.Component {
 
     if (!pagination || !pagination.currentPage) return null;
 
-    const liClass = (pagination.currentPage() === page ? 'active' : '');
+    const liClass = 'page-item' + (pagination.currentPage() === page ? ' active' : '');
 
     return (
       <li key={`page ${page}`} className={liClass}>
@@ -136,10 +136,10 @@ export default class GridPaging extends React.Component {
   renderPreviousPages() {
     if (this.state.displayedPages.length && this.state.displayedPages[0] > 2) {
       return (
-        <li>
+        <li className="page-item">
           <a
             href="#"
-            className="show-prev"
+            className="page-link show-prev"
             title="Show previous pages"
             onClick={this.handleClickShowPrevious}
           >...</a>
@@ -160,10 +160,10 @@ export default class GridPaging extends React.Component {
       && this.state.displayedPages[this.state.displayedPages.length - 1] < pagination.totalPages() - 1
     ) {
       return (
-        <li>
+        <li className="page-item">
           <a
             href="#"
-            className="show-prev"
+            className="page-link show-prev"
             title="Show next pages"
             onClick={this.handleClickShowNext}
           >...</a>
@@ -209,7 +209,7 @@ export default class GridPaging extends React.Component {
     return (
       <div className={containerClass}>
         <ul className="pagination">
-          <li className={pagination.currentPage() === 1 ? 'disabled' : ''}>
+          <li className={`page-item ${pagination.currentPage() === 1 ? 'disabled' : ''}`}>
             <a
               href="#"
               className="page-link previous-page"
@@ -222,7 +222,7 @@ export default class GridPaging extends React.Component {
           {this.state.displayedPages.map(this.renderPage)}
           {this.renderNextPages()}
           {this.renderLastPage()}
-          <li className={pagination.currentPage() === pagination.totalPages() ? 'disabled' : ''}>
+          <li className={`page-item ${pagination.currentPage() === pagination.totalPages() ? 'disabled' : ''}`}>
             <a
               href="#"
               className="page-link next-page"
